@@ -19,10 +19,10 @@
         <br>
         <br>
        <ul>
-        <li>WINS:</li>
-        <li>LOSSES:</li>
-        <li>YOUR GUESSES LEFT:</li>
-        <li>YOUR GUESSES SO FAR:</li>
+        <li id="wins">WINS:</li>
+        <li id="losses">LOSSES:</li>
+        <li id="left">YOUR GUESSES LEFT:</li>
+        <li id="soFar">YOUR GUESSES SO FAR:</li>
        </ul>
     </div>
     <script>
@@ -32,8 +32,9 @@
     var aBc = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
     var wins = 0
     var losses = 0
-    var guessesLeft = 5
+    var guessesLeft = 10
     var guessesUsed = 0
+   // var gameReset = ((guessesLeft) && (guessesUsed) === 0)
 
         //first command
         var psychic = aBc [Math.floor(Math.random() * aBc.length)];
@@ -41,23 +42,32 @@
         console.log(psychic)
 
         document.onkeypress = function(event) {
-         var userGuess = event.key;
+         var guest = event.key;
 
           if(guest === psychic)
           {
              wins++;
          }
          else{
-             guesses--;
+             guessesLeft--;
+             guessesUsed++;
          }
 
-         if(guesses === 0){
+         if(guessesLeft === 0){
             losses++
-         }
+         };
+         
+    //    // reset after guesses meet 10
+    //     document.onkeypress = function(event){
+    //     }
+    //     if((guessesUsed === 10)&&(guessesLeft === 0))
+    //         gameRest;
+    //     }
 
-         document.getElementById('wins').innerHTML = "Wins: " + wins;
-         document.getElementById('losses').innerHTML = "losses: " + losses;
-         document.getElementById('guesses').innerHTML = "Guesses left: " + guesses;
+         document.getElementById('wins').innerHTML = "WINS: " + wins;
+         document.getElementById('losses').innerHTML = "LOSSES: " + losses;
+         document.getElementById('left').innerHTML = "YOUR GUESSES LEFT: " + guessesLeft;
+         document.getElementById('soFar').innerHTML = "YOUR GUESSES SO FAR: " + guessesUsed;
 
          }
 
