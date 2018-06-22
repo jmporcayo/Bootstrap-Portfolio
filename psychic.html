@@ -4,9 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Pscychic</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="psychic.css">
+<title>Pscychic</title>
 </head>
 <body>
-    
+    <div class= "container">
+        <br>
+        <br>
+       <h1>THE PSYCHIC GAME</h1>
+        <br>
+        <br>
+       <ul>
+        <li>WINS:</li>
+        <li>LOSSES:</li>
+        <li>YOUR GUESSES LEFT:</li>
+        <li>YOUR GUESSES SO FAR:</li>
+       </ul>
+    </div>
+    <script>
+        //declaring variables
+    var psychic
+    var guest
+    var aBc = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+    var wins = 0
+    var losses = 0
+    var guessesLeft = 5
+    var guessesUsed = 0
+
+        //first command
+        var psychic = aBc [Math.floor(Math.random() * aBc.length)];
+
+        console.log(psychic)
+
+        document.onkeypress = function(event) {
+         var userGuess = event.key;
+
+          if(guest === psychic)
+          {
+             wins++;
+         }
+         else{
+             guesses--;
+         }
+
+         if(guesses === 0){
+            losses++
+         }
+
+         document.getElementById('wins').innerHTML = "Wins: " + wins;
+         document.getElementById('losses').innerHTML = "losses: " + losses;
+         document.getElementById('guesses').innerHTML = "Guesses left: " + guesses;
+
+         }
+
+    </script>
 </body>
 </html>
