@@ -34,9 +34,13 @@
     var losses = 0
     var guessesLeft = 10
     var guessesUsed = 0
-   // var gameReset = ((guessesLeft) && (guessesUsed) === 0)
+   // var newGame = guessesLeft = 10, guessesUsed = 0
+   
+//     function newGame (){
+//        guessesLeft = 10;
+//        guessesUsed = 0;
+//    }
 
-        //first command
         var psychic = aBc [Math.floor(Math.random() * aBc.length)];
 
         console.log(psychic)
@@ -55,15 +59,17 @@
 
          if(guessesLeft === 0){
             losses++
-         };
-         
-    //    // reset after guesses meet 10
-    //     document.onkeypress = function(event){
-    //     }
-    //     if((guessesUsed === 10)&&(guessesLeft === 0))
-    //         gameRest;
-    //     }
+         }
 
+         if((guessesLeft == 0) && (guessesUsed == 10)) {
+             alert("GAME OVER");
+             
+            //  function newGame(alert){
+            //      guessesLeft = 10;
+            //      guessesUsed = 0;
+            //  }
+                        // I couldn't figure out out to restart the game and change my global variables.
+         }
          document.getElementById('wins').innerHTML = "WINS: " + wins;
          document.getElementById('losses').innerHTML = "LOSSES: " + losses;
          document.getElementById('left').innerHTML = "YOUR GUESSES LEFT: " + guessesLeft;
