@@ -1,13 +1,14 @@
-$(document).ready(function () {
-    var config = {
-        apiKey: "AIzaSyAa-vARBptt3-f2gWM2MDBQCQ_wjCd5QGQ",
-        authDomain: "firstportfolio-5b7c2.firebaseapp.com",
-        databaseURL: "https://firstportfolio-5b7c2.firebaseio.com",
-        projectId: "firstportfolio-5b7c2",
-        storageBucket: "firstportfolio-5b7c2.appspot.com",
-        messagingSenderId: "444402799294"
-    };
-    firebase.initializeApp(config);
+console.log("this is linked");
+
+var config = {
+    apiKey: "AIzaSyA83k55VD-gbuL5MlVdBftuD5SOG8QHkYA",
+    authDomain: "contacts-portfolio.firebaseapp.com",
+    databaseURL: "https://contacts-portfolio.firebaseio.com",
+    projectId: "contacts-portfolio",
+    storageBucket: "",
+    messagingSenderId: "617511962842"
+  };
+  firebase.initializeApp(config);
 
     var database = firebase.database();
 
@@ -25,4 +26,31 @@ $(document).ready(function () {
 
         console.log("SENT!")
     })
-})
+
+    $(document).on("click", "#submit-button", function(){
+
+        console.log("this was clicked");
+        var name = $("#name").val().trim();
+        var email = $("#email").val().trim();
+        var message = $('#message').val().trim();
+
+        console.log(name)
+        console.log(email)
+        console.log(message);
+
+
+        // this is short hand because we are saving the property name to the same name as our variable
+        var contactFormObj = {
+            name,
+            email,
+            message
+        }
+
+        // var contactFormObj = {
+        //     name: name,
+        //     email: email,
+        //     message: message
+        // }
+
+        database.ref().push(contactFormObj);
+    })
